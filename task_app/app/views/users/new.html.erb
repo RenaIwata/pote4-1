@@ -1,0 +1,30 @@
+<h3>スケジュール新規登録</h3>
+<%= render "shared/error", obj: @user %>
+  <%= form_with model: @user do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :ttl,"タイトル" %></th>
+      <td class="text"><%= f.text_field :ttl %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :start,"開始日" %></th>
+      <td class="text"><%= f.date_field :start ,min: Date.current %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :end,"終了日" %></th>
+      <td class="text"><%= f.date_field :end ,min: Date.current %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :all,"終日" %></th>
+      <td class="all-day"><%= f.check_box :all %><br>終日の場合はチェックを入れてください</td>
+    </tr>
+    <tr>
+      <th><%= f.label :memo ,"メモ" %></th>
+      <td class="text"><%= f.text_area :memo %></td>
+    </tr>
+  </table>
+  <ul>
+    <li><%= f.submit "スケジュール新規登録する"%></li>
+    <li><%= link_to "スケジュール一覧に戻る", :users %></li>
+  </ul>
+<% end %>
