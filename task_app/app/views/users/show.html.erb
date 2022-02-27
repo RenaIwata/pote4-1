@@ -1,0 +1,32 @@
+<h3>スケジュール詳細</h3>
+  <table>
+    <tr>
+      <th>>タイトル</th>
+      <td><%= @user.ttl %></td>
+    </tr>
+    <tr>
+      <th>開始日</th>
+      <td><%= @user.start.strftime("%Y年 %m月 %d日") %></td>
+    </tr>
+    <tr>
+      <th>終了日</th>
+      <td><%= @user.end.strftime("%Y年 %m月 %d日") %></td>
+    </tr>
+    <tr>
+      <th>終日</th>
+      <td><% if @user.all == "1" %> 
+          ◯ 
+          <% else @user.all == "0" %>
+          <% end %></td>
+    </tr>
+    <tr>
+      <th>メモ</th>
+      <td><%= @user.memo %></td>
+    </tr>
+  </table>
+  <div>
+    <ul>
+      <li><%= link_to "スケジュールを編集する", :edit_user %></li>
+      <li><%= link_to "スケジュール一覧に戻る", :users %></li>
+    </ul>
+  </div>
